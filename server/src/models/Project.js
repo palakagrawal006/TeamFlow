@@ -7,7 +7,7 @@ const memberSchema = new mongoose.Schema(
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     role: { type: String, enum: PROJECT_ROLES, default: 'member' },
   },
-  { _id: false }
+  { _id: false } //create using uuid
 );
 
 const projectSchema = new mongoose.Schema(

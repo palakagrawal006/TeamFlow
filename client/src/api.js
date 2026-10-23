@@ -4,6 +4,8 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
 });
 
+// function that execute before sending req api
+
 api.interceptors.request.use((cfg) => {
   const token = localStorage.getItem('token');
   if (token) cfg.headers.Authorization = `Bearer ${token}`;

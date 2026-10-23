@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import api from './api';
 
-const Ctx = createContext(null);
-export const useAuth = () => useContext(Ctx);
+const Ctx = createContext(null); // check authentication data
+export const useAuth = () => useContext(Ctx); // use context data in components
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);

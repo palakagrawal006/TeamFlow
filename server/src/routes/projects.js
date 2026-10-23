@@ -27,7 +27,7 @@ router.get(
     const filter = {};
     if (req.user.role !== 'admin') filter['members.user'] = req.user._id;
     if (['active', 'archived'].includes(req.query.status)) filter.status = req.query.status;
-    if (req.query.q) filter.name = new RegExp(escapeRegex(req.query.q), 'i');
+    if (req.query.q) filter.name = new RegExp(escapeRegex(req.query.q), 'i'); //case insensitive , search 
 
     const [projects, total] = await Promise.all([
       Project.find(filter).sort('-createdAt').skip(skip).limit(limit).populate('createdBy', 'name'),
@@ -143,6 +143,7 @@ router.get(
   })
 );
 
+// assign project 
 router.post(
   '/:id/members',
   asyncHandler(async (req, res) => {
@@ -169,6 +170,7 @@ router.post(
   })
 );
 
+// add members
 router.patch(
   '/:id/members/:userId',
   asyncHandler(async (req, res) => {
@@ -197,6 +199,7 @@ router.patch(
   })
 );
 
+// remove project member
 router.delete(
   '/:id/members/:userId',
   asyncHandler(async (req, res) => {

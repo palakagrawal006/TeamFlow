@@ -31,6 +31,7 @@ router.get(
 // Everything below is admin-only
 router.use(requireAdmin);
 
+// all users
 router.get(
   '/',
   asyncHandler(async (req, res) => {
@@ -51,6 +52,7 @@ router.get(
   })
 );
 
+// create team member
 router.post(
   '/',
   asyncHandler(async (req, res) => {
@@ -74,6 +76,7 @@ router.post(
   })
 );
 
+// get particular user
 router.get(
   '/:id',
   asyncHandler(async (req, res) => {
@@ -83,6 +86,7 @@ router.get(
   })
 );
 
+// update user
 router.patch(
   '/:id',
   asyncHandler(async (req, res) => {

@@ -41,6 +41,7 @@ const POPULATE = [
 /* ---------------- Tasks ---------------- */
 
 // Must be declared before '/tasks/:id'
+// all tasks
 router.get(
   '/tasks/mine',
   asyncHandler(async (req, res) => {
@@ -55,6 +56,7 @@ router.get(
   })
 );
 
+// permissions
 router.get(
   '/tasks/:id',
   asyncHandler(async (req, res) => {
@@ -65,6 +67,7 @@ router.get(
   })
 );
 
+// to make update- concurrency 
 router.patch(
   '/tasks/:id',
   asyncHandler(async (req, res) => {
@@ -131,7 +134,7 @@ router.delete(
 );
 
 /* ---------------- Comments ---------------- */
-
+// show comments
 router.get(
   '/tasks/:id/comments',
   asyncHandler(async (req, res) => {
@@ -143,7 +146,7 @@ router.get(
     res.json({ data: comments });
   })
 );
-
+// make comments
 router.post(
   '/tasks/:id/comments',
   asyncHandler(async (req, res) => {
