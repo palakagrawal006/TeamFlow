@@ -18,6 +18,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen">
       {open && <div className="fixed inset-0 z-30 bg-slate-900/40 lg:hidden" onClick={() => setOpen(false)} />}
+      {/* sidebar */}
       <aside
         className={cn(
           'fixed inset-y-0 left-0 z-40 w-60 border-r border-slate-200 bg-white transition-transform lg:translate-x-0',

@@ -79,6 +79,7 @@ export default function TaskDetail() {
   const dirty = Object.keys(changedFields()).length > 0;
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
+  // save in backend
   const save = async () => {
     const changes = changedFields();
     if (!Object.keys(changes).length) return;
@@ -102,7 +103,7 @@ export default function TaskDetail() {
   };
 
   const useLatestDiscardMine = () => {
-    setTask(conflict.current);
+    setTask(conflict.current); //VERSION
     setForm(fromTask(conflict.current));
     setConflict(null);
     toast.success('Loaded the latest version');
